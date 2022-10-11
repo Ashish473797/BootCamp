@@ -17,7 +17,7 @@ class Square
         flag++;
         return val;
     }
-    void square()
+    void sq()
     {
         flag++;
         square=val*val;
@@ -32,13 +32,13 @@ class Square
         return flag;
     }
 };
-int Square::flag=0;
+int Square::flag;
 int main()
 {
     Square s1;
     s1.setData(2);
     s1.getData();
-    s1.square();
+    s1.sq();
     cout<<s1.getSquare()<<endl;
     cout<<Square::getFunCall();
     return 0;
