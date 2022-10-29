@@ -18,7 +18,7 @@ class MyString
     }
     MyString operator ! ()
     {
-        MyString temp=*this;
+        MyString temp;
         for(int i=0;str[i];i++)
         {
             if(str[i]>=65 && str[i]<=90)
