@@ -34,7 +34,7 @@ class Dollar
     }
     operator Rupee()
     {
-        return (d/82);
+        return (d*82.0);
     }
 };
 int main()
