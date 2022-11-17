@@ -2,19 +2,18 @@
 using namespace std;
 int * product_execpSelf(int arr[],int size)
 {
-    int *temp = (int *)malloc(size);
-    for(int i=0; i<size; i++)
-        temp[i]=1;
-
-    for(int i=0; i<size; i++)
-    {
-        for(int j=0; j<size; j++)
-        {
-            if(i!=j)
-            temp[i] = temp[i]*arr[j];
-        }
+    int *ret=(int*)malloc(size*sizeof(int));
+    ret[0]=1;
+    for(int i=1;i<size;i++){
+        ret[i]=arr[i-1]*ret[i-1];
     }
-    return temp;
+    int temp=1;
+    for(int i=size-1;i>=0;i--)
+    {
+        ret[i]*=temp;
+        temp*=arr[i];
+    }
+    return ret;
 }
 int main()
 {
