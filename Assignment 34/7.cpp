@@ -4,3 +4,17 @@
 #include<iostream>
 #include<fstream>
 #include<string>
+using namespace std;
+int main()
+{
+    ofstream write;
+    ifstream read;
+    read.open("demo1.txt", ios::in);
+    read.seekg(29, ios_base::beg);
+    int n;
+    while(!read.eof())
+    {
+        
+    }
+    return 0;
+}
