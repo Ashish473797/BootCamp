@@ -1,10 +1,20 @@
-100101 ashish kumar Gupta   1
-100101 ashish kumar Gupta   5
-100101 ashish kumar Gupta   6
-100101 ashish kumar Gupta   10
-100101 ashish kumar Gupta   8
-100101 ashish kumar Gupta   2
-100101 ashish kumar Gupta   7
-100101 ashish kumar Gupta   3
-100101 ashish kumar Gupta   4
-100101 ashish kumar Gupta   9
+1
+ashish
+1000
+
+3
+anamika
+3000
+
+4
+roshani
+4000
+
+5
+alok
+5000
+
+5
+alok
+5000
+
