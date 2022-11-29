@@ -10,6 +10,7 @@ Sal.dat, Pro.dat, IT.dat respectively to store the employee details according to
 #include<iostream>
 #include<fstream>
 #include<string>
+#include<cstring>
 using namespace std;
 class Employee
 {
@@ -19,94 +20,100 @@ class Employee
         long long phone;
         int age;
     public:
-        void setData()
+        void setData(int id, string name, string address, string dept, long long phone, int age)
         {
-           cout<<"Enter id: ";
-           cin>>id;
-           cout<<"Enter name: ";
-           cin.ignore();
-           getline(cin,name);
-           cout<<"Enter address: ";
-           cin.ignore();
-           getline(cin,address);
-           cout<<"Enter department: ";
-           cin.ignore();
-           getline(cin,dept);
-           cout<<"Enter phone Number: ";
-           cin>>phone;
-           cout<<"Enter age: ";
-           cin>>age;
+            Employee::id = id;
+            Employee::name = name;
+            Employee::address = address;
+            Employee::dept = dept;
+            Employee::phone = phone;
+            Employee::age = age;
         }
-        void save_to_file()
+        void save_to_admin()
         {
-            Employee e2;
-            ifstream read;
-            read.open("emp.dat", ios::in);
-            while(!read.eof())
-            {
-                read>>e2.id;
-                read>>e2.name;
-                read>>e2.address;
-                read>>e2.dept;
-                read>>e2.phone;
-                read>>e2.age;
-                if(dept=="Admin")
-                {
-                    ofstream write;
-                    write.open("Admin.dat", ios::app);
-                    write<<e2.id;
-                    write<<e2.name;
-                    write<<e2.address;
-                    write<<e2.dept;
-                    write<<e2.phone;
-                    write<<e2.age;
-                }
-                else if(dept=="Sales")
-                {
-                    ofstream write;
-                    write.open("Sales.dat", ios::app);
-                    write<<e2.id;
-                    write<<e2.name;
-                    write<<e2.address;
-                    write<<e2.dept;
-                    write<<e2.phone;
-                    write<<e2.age;
-                }
-                else if(dept=="Production")
-                {
-                    ofstream write;
-                    write.open("Production.dat", ios::app);
-                    write<<e2.id;
-                    write<<e2.name;
-                    write<<e2.address;
-                    write<<e2.dept;
-                    write<<e2.phone;
-                    write<<e2.age;
-                }
-                else if(dept=="IT")
-                {
-                    ofstream write;
-                    write.open("IT.dat", ios::app);
-                    write<<e2.id;
-                    write<<e2.name;
-                    write<<e2.address;
-                    write<<e2.dept;
-                    write<<e2.phone;
-                    write<<e2.age;
-                }
-            }
+            ofstream writeAdmin;
+            writeAdmin.open("Admin.txt", ios::app);
+            writeAdmin<<id<<endl;
+            writeAdmin<<name<<endl;
+            writeAdmin<<address<<endl;
+            writeAdmin<<dept<<endl;
+            writeAdmin<<phone<<endl;
+            writeAdmin<<age<<endl;
+            writeAdmin.close();
+        }
+        void save_to_sales()
+        {
+            ofstream writeSales;
+            writeSales.open("Sales.txt", ios::app);
+            writeSales<<id<<endl;
+            writeSales<<name<<endl;
+            writeSales<<address<<endl;
+            writeSales<<dept<<endl;
+            writeSales<<phone<<endl;
+            writeSales<<age<<endl;
+            writeSales.close();
+        }
+        void save_to_production()
+        {
+            ofstream writePro;
+            writePro.open("Production.txt", ios::app);
+            writePro<<id<<endl;
+            writePro<<name<<endl;
+            writePro<<address<<endl;
+            writePro<<dept<<endl;
+            writePro<<phone<<endl;
+            writePro<<age<<endl;
+            writePro.close();
+        }
+        void save_to_it()
+        {
+            ofstream writeIt;
+            writeIt.open("IT.txt", ios::app);
+            writeIt<<id<<endl;
+            writeIt<<name<<endl;
+            writeIt<<address<<endl;
+            writeIt<<dept<<endl;
+            writeIt<<phone<<endl;
+            writeIt<<age<<endl;
+            writeIt.close();
         }
 };
 int main()
 {
+    int id;
+    string name, address, dept;
+    long long phone;
+    int age;
     Employee e1;
-    int n;
-    cout<<"how many employee you want to Enter: ";
-    cin>>n;
-    while(n--)
+    ifstream read;
+    read.open("Employee.txt", ios::in);
+    while(!read.eof())
     {
-       e1.setData();
-       e1.save_to_file();
+        read>>id;
+        read.ignore();
+        getline(read,name);
+        getline(read,address);
+        getline(read,dept);
+        read>>phone;
+        read>>age;
+        e1.setData(id, name, address, dept, phone, age);
+        if(dept.compare("Admin"))
+        {
+            e1.save_to_admin();
+        }
+        if(dept.compare("Sales"))
+        {
+            e1.save_to_sales();
+        }
+        if(dept.compare("Production"))
+        {
+            e1.save_to_production();
+        }
+        if(dept.compare("IT"))
+        {
+            e1.save_to_it();
+        }
     }
+    read.close();
     return 0;
 }
