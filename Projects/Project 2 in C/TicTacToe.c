@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<conio.h>
-
+#include<stdlib.h>
 char square[3][3] = {
                      {'1','2','3'},
                      {'4','5','6'},
@@ -32,7 +32,7 @@ void findComputerMove()
         for(col =0; col <3; col++)
         {
             // reset
-           // maxMul = 1;
+            // maxMul = 1;
             if(board[row][col] == 2)
             {
                board[row][col] = 3;
@@ -185,7 +185,7 @@ int isPlaceEmpty(int row, int col)
 
 void enterChoice()
 {
-    printf("Player %d, Enter Marking Place : ",player);
+    printf("\n\nPlayer %d, Enter Marking Place : ",player);
     fflush(stdin);
     scanf("%d",&choice);
     fflush(stdin);
@@ -204,13 +204,11 @@ void selectMark()
 void gameStatus()
 {
     if(i==1){
-		printf("Player %d won",--player);
+		printf("\n-------Player %d won--------",--player);
 	}
 	else {
-		printf("Game draw");
+		printf("\n---------Game draw----------");
 	}
-
-	 printf("\n\n#####################################################\n\n");
 }
 
 int checkWinner(){
@@ -305,8 +303,7 @@ void fillMark()
     // Mark not done means Invalid option
     if(flag == 0)
     {
-      printf("\n\n#####################################################\n\n");
-      printf("Place is Either already used or incorrect !");
+      printf("\n!!!Place is Either already used or incorrect!!!\n");
       getch();
       if(withPlayer == 0)
       player--;
@@ -342,10 +339,11 @@ int main(){
         system("cls");
         resetBoard();
         printf("Enter your choice\n");
-        printf("1. Want to play with Smart Computer\n");
-        printf("2. Want to play with Evil Computer\n");
-        printf("3. Want to play with player\n");
-        printf("4. Exit\n");
+        printf("`````````````````\n");
+        printf("Press 1 to play with Smart Computer\n");
+        printf("Press 2 to play with Evil Computer\n");
+        printf("Press 3 to play with player\n");
+        printf("Press 4 Exit\n");
         scanf("%d",&choice);
 
         switch(choice)
@@ -390,7 +388,7 @@ int main(){
             case 4 :
                 exit(0);
                 break;
-            default: printf("Invalid choice\n");
+            default: printf("\nInvalid choice!\n");
         }
 
     }
