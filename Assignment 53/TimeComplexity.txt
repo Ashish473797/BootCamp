@@ -7,7 +7,7 @@ for (j = 0; j < M; j++) {
 b = b + rand();
 }
 Solution:
-O(n)
+O(n+m)
 
 
 2. What is the time complexity of the following code:
@@ -29,7 +29,7 @@ k = k + n / 2;
 }
 }
 Solution:
-O(log n * log n)
+O(n log n)
 
 
 4. What is the time complexity of the following code :
@@ -41,7 +41,7 @@ for (int k = 1; k <= n; k = k * 2)
 cout << "Prateek Jain";
 }
 Solution:
-O(log n * log n * log n)
+O(n^2 * log n)
 
 
 (problem 5 to 10 each of the following recurrences, give an expression for the
