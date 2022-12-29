@@ -1,0 +1,83 @@
+// Create a function in Array to check the size of an array.
+#include<iostream>
+using namespace std;
+class Array
+{
+    int size=0, capacity = 10;
+    int arr[10];
+    public:
+    void sort()
+    {
+        int n = size-1;
+        while(n)
+        {
+            for(int i=0; i<size-1; i++)
+            {
+                if(arr[i]>arr[i+1])
+                {
+                    int temp = arr[i];
+                    arr[i] = arr[i+1];
+                    arr[i+1] = temp;
+                }
+            }
+            n--;
+        }
+    }
+    int getSize()
+    {
+        return size;
+    }
+    void reverse()
+    {
+        int temp;
+        for(int i=0; i<5; i++)
+        {
+            temp = arr[i];
+            arr[i] = arr[9 - i];
+            arr[9 - i] = temp;
+        }
+    }
+    int search(int value)
+    {
+        for(int i=0; i<10; i++)
+        {
+            if(arr[i]==value)
+            return i;
+        }
+        return -1;
+    }
+    void insert(int value)
+    {
+        if(size==capacity)
+        {
+            cout<<"Array is Full!\n";
+        }
+        else
+        arr[size++] = value;
+    }
+    int access(int index)
+    {
+        if(index>=0 && index<10)
+        return arr[index];
+        return -1;
+    }
+    void showData()
+    {
+        cout<<endl;
+        for(int i=0; i<size; i++)
+        {
+            cout<<arr[i]<<" ";
+        }
+    }
+};
+int main()
+{
+    Array a1;
+    a1.insert(1);
+    a1.insert(2);
+    a1.insert(3);
+    a1.insert(4);
+    a1.insert(5);
+    a1.showData();
+    cout<<"\nsize = "<<a1.getSize()<<endl<<endl;
+}
